@@ -48,7 +48,7 @@ function eventListeners(data) {
         });
     }
 
-    document.querySelector('input[type="search"]').addEventListener('keyup', (e) => {
+    document.querySelector('input#search-input').addEventListener('keyup', (e) => {
         let updatedData = [];
         for (let j = 0; j < dataOriginal.length; j++) {
             if (dataOriginal[j].name.first.toUpperCase().includes(e.target.value.toUpperCase()) || dataOriginal[j].name.last.toUpperCase().includes(e.target.value.toUpperCase())) {
