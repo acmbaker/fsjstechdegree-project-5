@@ -13,7 +13,7 @@ Search form - the user can type in something to the search form and the employee
 
 CSS changes - the page has been enhanced with different colours and fonts.
 
-Modal popup - in the popup, we have a next and previous button which allow you to click between employees on the list.
+Modal popup - in the popup, the relevant buttons allow you to toggle between employees on the page.
 
 ## Outcome
 Everything is functioning as per the brief and exceeded grade requirements.
