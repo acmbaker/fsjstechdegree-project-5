@@ -1,6 +1,6 @@
 // Fetch API
 let dataOriginal;
-fetch("https://randomuser.me/api/?results=12")
+fetch("https://randomuser.me/api/?nat=gb,us&results=12")
   .then((data) => data.json())
   .then((data) => (dataOriginal = data.results))
   .then((data) => gallery(dataOriginal));
@@ -19,22 +19,28 @@ document.querySelector("div.search-container").insertAdjacentHTML(
 // Gallery Function
 function gallery(data) {
   document.querySelector("div#gallery").innerHTML = "";
-  for (let i = 0; i < data.length; i++) {
-    document.querySelector("div#gallery").insertAdjacentHTML(
-      "beforeend",
-      `
-            <div class="card">
-                <div class="card-img-container">
-                    <img class="card-img" src="${data[i].picture.thumbnail}" alt="profile picture">
-                </div>
-                <div class="card-info-container">
-                    <h3 id="name" class="card-name cap">${data[i].name.first} ${data[i].name.last}</h3>
-                    <p class="card-text">${data[i].email}</p>
-                    <p class="card-text cap">${data[i].location.city}, ${data[i].location.state}</p>
-                </div>
-            </div>
-            `
-    );
+  if (data.length === 0) {
+    document.querySelector(
+      "div#gallery"
+    ).innerHTML = `<h2>No results found...</h2>`;
+  } else {
+    for (let i = 0; i < data.length; i++) {
+      document.querySelector("div#gallery").insertAdjacentHTML(
+        "beforeend",
+        `
+                    <div class="card">
+                        <div class="card-img-container">
+                            <img class="card-img" src="${data[i].picture.thumbnail}" alt="profile picture">
+                        </div>
+                        <div class="card-info-container">
+                            <h3 id="name" class="card-name cap">${data[i].name.first} ${data[i].name.last}</h3>
+                            <p class="card-text">${data[i].email}</p>
+                            <p class="card-text cap">${data[i].location.city}, ${data[i].location.state}</p>
+                        </div>
+                    </div>
+                    `
+      );
+    }
   }
   eventListeners(data);
 }
@@ -68,7 +74,7 @@ document.querySelector("input#search-input").addEventListener("keyup", (e) => {
   gallery(updatedData);
 });
 
-// Prev and Next button functionaliy
+// Prev and Next button functionality
 function switchButtons(data, position) {
   document.querySelector("div.modal-container").insertAdjacentHTML(
     "beforeend",
