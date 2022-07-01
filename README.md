@@ -1,5 +1,5 @@
 # Full Stack JavaScript Project 5
-For this project, I created a directory which used an API to fetch the data from.
+For this project, I created a directory which used the random user API to fetch the data from.
 
 ## The Brief
 For this project, you'll build an app for a fictional company called Awesome Startup, a distributed company with remote employees working all over the world. They need a smart way for employees to share contact information with each other.
